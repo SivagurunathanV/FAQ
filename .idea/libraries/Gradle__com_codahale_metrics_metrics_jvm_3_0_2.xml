@@ -1,0 +1,11 @@
+<component name="libraryTable">
+  <library name="Gradle: com.codahale.metrics:metrics-jvm:3.0.2">
+    <CLASSES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.codahale.metrics/metrics-jvm/3.0.2/d0c6032905a3c6793c3ddcfade79e2b5f3ec1e25/metrics-jvm-3.0.2.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.codahale.metrics/metrics-jvm/3.0.2/55b1faa17cb98cc32fbda0b8eaaa84035a0eecd1/metrics-jvm-3.0.2-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>

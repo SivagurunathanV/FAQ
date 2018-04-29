@@ -1,0 +1,11 @@
+<component name="libraryTable">
+  <library name="Gradle: edu.mit:jwi:2.2.3">
+    <CLASSES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/edu.mit/jwi/2.2.3/a71ca50b2d4184a2b1eaf62c701e8974cbb3881c/jwi-2.2.3.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/edu.mit/jwi/2.2.3/edd1bf81099a8d1fd0c6e9e229baf966bcfdf056/jwi-2.2.3-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>

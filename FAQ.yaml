@@ -1,0 +1,7 @@
+filePath : /Users/sivagurunathanvelayutham/Documents/FAQ/src/main/java/Task1/qa_Pet_Supplies.json
+
+database :
+  driverClass : com.mysql.jdbc.Driver
+  user : faq
+  password : faq
+  url : jdbc:mysql://localhost:3306/FAQ

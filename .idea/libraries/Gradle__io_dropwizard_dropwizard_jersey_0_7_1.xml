@@ -1,0 +1,11 @@
+<component name="libraryTable">
+  <library name="Gradle: io.dropwizard:dropwizard-jersey:0.7.1">
+    <CLASSES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/io.dropwizard/dropwizard-jersey/0.7.1/8a77eb20d752be6769c1f7d22d7f7490db383427/dropwizard-jersey-0.7.1.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/io.dropwizard/dropwizard-jersey/0.7.1/88e251821cc5762de9b522d307da238897857b99/dropwizard-jersey-0.7.1-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>
