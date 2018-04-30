@@ -18,6 +18,7 @@ import model.RawData;
 import model.TokenizedData;
 import org.apache.http.client.HttpClient;
 import org.apache.http.impl.client.HttpClientBuilder;
+import org.eclipse.jetty.servlets.CrossOriginFilter;
 import org.tartarus.snowball.ext.PorterStemmer;
 import resource.AdvanceTokenResource;
 import resource.DataResource;
@@ -27,7 +28,10 @@ import tokenizer.AdvanceWordTokenizer;
 import helper.WordNetHelper;
 import tokenizer.WordTokenizer;
 
+import javax.servlet.DispatcherType;
+import javax.servlet.FilterRegistration;
 import java.net.URL;
+import java.util.EnumSet;
 
 /**
  * Created by sivagurunathanvelayutham on Mar, 2018
@@ -55,6 +59,15 @@ public class FAQApplication extends Application<FAQConfiguration> {
 
     @Override
     public void run(FAQConfiguration configuration, Environment environment) throws Exception {
+
+        final FilterRegistration.Dynamic cors = environment.servlets().addFilter("CORS", CrossOriginFilter.class);
+        cors.setInitParameter("allowedOrigins", "*");
+        cors.setInitParameter("allowedHeaders","X-Requested-With,Content-Type,Accept,Origin");
+        cors.setInitParameter("allowedMethods","OPTIONS,GET,PUT,POST,DELETE,HEAD");
+
+        // url mapping
+        cors.addMappingForUrlPatterns(EnumSet.allOf(DispatcherType.class), true, "/*");
+
         final String filePath = configuration.getFilePath();
         final RawDataDao rawDataDao = new RawDataDao(hibernateBundle.getSessionFactory());
         final TokenizedDataDao tokenizedDataDao = new TokenizedDataDao(hibernateBundle.getSessionFactory());

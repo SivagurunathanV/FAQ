@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>FAQ</title>
+	<meta charset="utf-8">
+  	<meta name="viewport" content="width=device-width, initial-scale=1">
+<!--   	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"> -->
+  	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-beta/css/materialize.min.css">
+  	<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-beta/js/materialize.min.js"></script>
+
+  	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+	<link rel="stylesheet" type="text/css" href="css/my_style.css" />
+</head>
+<script type="text/javascript">
+	function renderPageForSearch() {
+		// body...
+		var adv_search = document.getElementById("adv_search_container");
+		adv_search.style.display = "none"
+		var x = document.getElementById("search_container");
+		x.style.display = "block"
+		var search_box = document.getElementById("search_box")
+		search_box.value = ""
+		document.getElementById("results").style.display = "none"
+		document.getElementById("report").style.display = "none"
+		document.getElementById("home").style.display = "none"
+	}
+
+	function renderPageForAdvSearch() {
+		// body...
+		var search_normal = document.getElementById("search_container")
+		search_normal.style.display = "none"
+		var x = document.getElementById("adv_search_container");
+		x.style.display = "block"
+		var search_box = document.getElementById("search_box_adv")
+		search_box.value = ""
+		document.getElementById("results").style.display = "none"
+		document.getElementById("report").style.display = "none"
+		document.getElementById("home").style.display = "none"
+	}
+
+	function togglePage() {
+		// body...
+		var x = document.getElementById("search_container");
+		if (x.style.display == "block") {
+			x.style.display = "none"
+		}
+		var y = document.getElementById("adv_search_container")
+		if(y.style.display == "block"){
+			y.style.display = "none"
+		}
+		document.getElementById("results").style.display = "none"
+		document.getElementById("report").style.display = "none"
+		document.getElementById("home").style.display = "block"
+	}
+
+	function renderReport() {
+		// body...
+		document.getElementById("results").style.display = "none"
+		document.getElementById("search_container").style.display = "none"
+		document.getElementById("adv_search_container").style.display = "none"
+		var report=document.getElementById("report")
+		report.style.display = "block"
+		document.getElementById("home").style.display = "none"
+	}
+
+	function showAdvResults(){
+		var text = document.getElementById("search_box_adv").value
+		$.post({
+			url: 'http://localhost:8080/similarity_service/faq',
+			data: JSON.stringify({ words: text }),
+			// data: {words : text} JSON.stringify({ words: text }),,
+			contentType: "application/json; charset=utf-8",
+			dataType: "json",
+			success: function (response) {
+				// body...
+				var html = "<strong>Results</strong>";
+				jQuery(response).each(function(i,key){
+					// console.log("Question",key.question)
+					// console.log("answer",key.answer)
+					html += "<div class='card small'>"
+					html += "<div class='card-content'>"
+					html += "<p> Question : " + key.question + "</p>"
+					html += "<p> Answer : " + key.answer + "</p>"
+					html += "</div></div>"
+				})
+				var result = document.getElementById("results")
+				result.innerHTML = html
+				result.style.display = "block"
+			} 
+		})
+	}
+
+	function showResults() {
+		// body...
+		var text = document.getElementById("search_box").value
+		$.get('http://localhost:8080/tokenized/data/match?question='+text,function (response) {
+				// body...
+				var html = "<strong>Results</strong>";
+				jQuery(response).each(function(i,key){
+					// console.log("Question",key.question)
+					// console.log("answer",key.answer)
+					html += "<div class='card medium'>"
+					html += "<div class='card-content'>"
+					html += "<p> Question : " + key.question + "</p>"
+					html += "<p> Answer : " + key.answer + "</p>"
+					html += "<p> Score : " + key.score + "</p>"
+					html += "</div></div>"
+				})
+				var result = document.getElementById("results")
+				result.innerHTML = html
+				result.style.display = "block"
+			})
+		text = ""
+	}
+
+</script>
+
+<body>
+	<div class="container">
+	<h3>FAQ NLP PROJECT<br />
+        <small>Implementing a faq page for question and answers!</small>
+    </h3>
+    <br />
+    
+    <div class="row">
+        <div class="col-sm-6 col-sm-offset-3">
+            <nav class="nav-sidebar">
+                <ul>
+                    <li onclick="togglePage()"><a href="javascript:;">HOME</a></li>
+                    <li onclick="renderPageForSearch()"><a href="javascript:;">SEARCH</a></li>
+                    <li onclick="renderPageForAdvSearch()"><a href="javascript:;">ADVANCE SEARCH</a></li>
+                    <li onclick="renderReport()"><a href="javascript:;">REPORTS</a></li>
+                    <!-- <li class="nav-divider"></li> -->
+                    <!-- <li><a href="javascript:;"><i class="glyphicon glyphicon-off"></i> Sign in</a></li> -->
+                </ul>
+            </nav>
+        </div>
+        <br>
+        <div id="home" style="display: block; overflow: auto">
+        	<iframe src="file:///Users/sivagurunathanvelayutham/Downloads/Project_S18_NLP6320.pdf" type="application/pdf" 
+					style="width:1000px; height:800px;" frameborder="0"></iframe>
+        </div>
+        <div>
+        	<div id="search" class="col-sm-6 col-sm-offset-3">
+        	<div id="search_container" style="display: none"> 
+                <div>
+                    <input id="search_box" type="text" placeholder="What you are looking for?">
+                    	<button type="submit" onclick="showResults()">
+                            <i class="material-icons">search</i>
+                       	</button>
+                	</div>
+            	</div>	
+            <div id="adv_search_container" style="display: none"> 
+                	<div class="input-group">
+                    	<input id="search_box_adv" type="text" placeholder="What you are looking for? Improved version :-P"/>
+                    		<button type="submit" onclick="showAdvResults()">
+                            	<i class="material-icons">search</i>
+                       		</button>
+                	</div>
+            	</div>
+	        <div id="results" class="col s12 m18" style='display: none;font-size:130%'>
+	    		
+	    	</div>
+	      </div>
+        </div>
+        <div id="report" style="display: none; overflow: auto" >
+        	<!-- <div id="report" class='embed-responsive' style="padding-bottom:150% display:none;"">
+	    		<object data='file"///Users/sivagurunathanvelayutham/Downloads/ big\ data\ Assignment\ 4.pdf' type='application/pdf' width='100%' height='100%'></object>
+		    		<object data="" type="application/pdf" width="100%" height="800px"> 
+				  <p>It appears you don't have a PDF plugin for this browser.
+				   No biggie... you can <a href="resume.pdf">click here to
+				  download the PDF file.</a></p>  
+ 				</object>http://docs.google.com/gview?url= &embedded=true
+ 			</div> -->
+ 			<iframe src="file:///Users/sivagurunathanvelayutham/Downloads/NLP%20Q3.pdf" type="application/pdf" 
+					style="width:1000px; height:800px;" frameborder="0"></iframe>
+		</div>
+	</div>
+</body>
+</html>
