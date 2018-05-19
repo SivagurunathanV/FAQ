@@ -1,14 +1,14 @@
-#FREQUENTLY ASKED QUESTIONS - NLP
+# FREQUENTLY ASKED QUESTIONS - NLP
 
-###SIVAGURUNATHAN VELAYUTHAM
-###SXV176330@UTDALLAS.EDU
-###INTRODUCTION
+### SIVAGURUNATHAN VELAYUTHAM
+### SXV176330@UTDALLAS.EDU
+### INTRODUCTION
 
 Frequently asked questions popularly called as F.A.Q, provides a list of Questions and Answers, commonly asked in some context, and pertaining to a particular topic. FAQ are mostly used where questions tend to occur. The convenient way to share FAQ with others is writing an article and storing it in offline. In this case, the articles might not be FAQ - not necessarily questions and answers. However, FAQ used refer all those documents and postings which are offline. 
 With advancement in Internet, people tend to share the documents or articles in online. People prefer to ask questions in online forums, chat with customer support and reading reviews. These modes helped the user to find the right answer which are relevant for them. In recent times, users having access to a lot of data, where they could not find an appropriate answer for the question. This leads to FAQ as irrelevant if the answer provided in one or more FAQ, user does not get the answer what he/she looks for. 
 Natural Language processing (NLP) is a branch of artificial intelligence concerned with automatic interpretation and generation of human language like text, voice etc. It solves the problem of finding relevant question for user by applying NLP techniques like stemming, lemmatization and semantic features on the questions.
 
-###REQUIREMENTS
+### REQUIREMENTS
 
 Implement a FAQ that will produce improved results using NLP features and techniques.
 Input will be a set of FAQ's and answers. User's input natural language question/statement and generate one or more FAQ's that match the user's input question/statement.
@@ -16,7 +16,7 @@ Input will be a set of FAQ's and answers. User's input natural language question
 
 
 
-###DATASET:
+### DATASET:
 
 This dataset contains Question and Answer data from Amazon by matching ASINs(Amazon Standard Identification Number). 
 
@@ -34,13 +34,13 @@ Here we went with Pet Supplies in the product category, since it contains more n
 
 
 
-###ARCHITECTURE
+### ARCHITECTURE
 
  
 
 
 
-###IMPLEMENTATION
+### IMPLEMENTATION
 
 After getting the dataset, following are the steps involved in implementing the NLP Pipeline
 1.	From the input dataset, parse the JSON data and store the raw data in database
@@ -57,25 +57,25 @@ RESULTS
 POSITIVE TEST CASE USING BRUTE FORCE
 
  
-###NEGATIVE TEST CASE USING BRUTE FORCE
+### NEGATIVE TEST CASE USING BRUTE FORCE
 
  
 
-###TEST CASE USING ADVANCE NLP TECHNIQUE
+### TEST CASE USING ADVANCE NLP TECHNIQUE
  
 
-###FUTURE WORK
+### FUTURE WORK
 
 With recent advancement in the deep learning, we can implement architecture based on the Recurrent Neural Networks (RNN's) and Convolutional Neural Networks (CNN) or combination of both. 
 Using genism, we implemented a word2vec and find the most similar word from that. Other options like we can build this from RNN combined with bi-LSTM using tensor flow which can give better performance and accuracy for larger datasets.
 For improving the query performance, we can use push this data to elastic search or solar so that processing on partial text will be even faster.
 
-###TECHNOLOGIES USED
+### TECHNOLOGIES USED
 
-PROGRAMMING LANGUAGES: JAVA, PYTHON
-TOOLS USED: STANFORD NLP, DROPWIZARD, HIBERNATE, GOOGLE GUAVA, JACKSON, JWI, FLASK
-SERVER: JERSEY
-UI COMPONENTS: HTML, CSS, JAVASCRIPT
+* PROGRAMMING LANGUAGES: JAVA, PYTHON
+* TOOLS USED: STANFORD NLP, DROPWIZARD, HIBERNATE, GOOGLE GUAVA, JACKSON, JWI, FLASK
+* SERVER: JERSEY
+* UI COMPONENTS: HTML, CSS, JAVASCRIPT
 
 RESOURCES AND LINKS
 
