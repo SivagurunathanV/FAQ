@@ -22,6 +22,7 @@ This dataset contains Question and Answer data from Amazon by matching ASINs(Ama
 
 Sample Question and Answer:
  
+ ![](https://github.com/SivagurunathanV/FAQ/blob/6f5ddd6bf653368dce43be8fc436a51369924b37/docs/sample_dataset.png)
 
 1.	asin- id of the product
 2.	questionType - type of question, could be yes/no or open-ended
@@ -36,9 +37,7 @@ Here we went with Pet Supplies in the product category, since it contains more n
 
 ### ARCHITECTURE
 
- 
-
-
+ ![alt arch](https://github.com/SivagurunathanV/FAQ/blob/master/docs/arch.png)
 
 ### IMPLEMENTATION
 
@@ -53,16 +52,12 @@ After getting the dataset, following are the steps involved in implementing the 
 8.	Send this extracted feature to the model and predict the most similar words. 
 9.	In the next step, we extract the questions based on the predicted words from the model and display it to the user
 10.	Update the model, after completing the request from the user. In this way model can be trained a lot more and its accuracy can be improved.
-RESULTS
-POSITIVE TEST CASE USING BRUTE FORCE
 
- 
-### NEGATIVE TEST CASE USING BRUTE FORCE
-
- 
+## RESULTS
 
 ### TEST CASE USING ADVANCE NLP TECHNIQUE
  
+ ![](https://github.com/SivagurunathanV/FAQ/blob/6f5ddd6bf653368dce43be8fc436a51369924b37/docs/result.png)
 
 ### FUTURE WORK
 
